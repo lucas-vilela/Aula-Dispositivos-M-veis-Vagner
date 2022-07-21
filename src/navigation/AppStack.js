@@ -1,0 +1,47 @@
+//import 'react-native-gesture-handler';
+import React from 'react';
+import {createNativeStackNavigator} from '@react-navigation/native-stack';
+
+
+import {COLORS} from '../assets/colors';
+import Preload from '../screens/Preload';
+import Student from '../screens/Student';
+import Course from '../screens/Course';
+import Courses from '../screens/Courses';
+import HeaderAlert from '../components/HeaderAlert';
+import HeaderAlertHome from '../components/HeaderAlertHome';
+import Users from '../screens/Users';
+import User from '../screens/User';
+import Students from '../screens/Students';
+
+const Stack = createNativeStackNavigator();
+const AppStack = () => {
+  return (
+    <Stack.Navigator initialRouteName="Preload">
+      <Stack.Screen name="Preload" component={Preload} options={preloadStyle} />
+      <Stack.Screen name="Alunos" component={Students} options={alertBarHome} />
+      <Stack.Screen name="Aluno" component={Student} options={alertBar} />
+      <Stack.Screen name="Cursos" component={Courses} options={alertBar} />
+      <Stack.Screen name="Curso" component={Course} options={alertBar} />
+      <Stack.Screen name="Usuarios" component={Users} options={alertBar} />
+      <Stack.Screen name="Usuário" component={User} options={alertBar} />
+    </Stack.Navigator>
+  );
+};
+export default AppStack;
+
+const alertBar = {
+  headerTitle: () => <HeaderAlert />,
+  headerStyle: {backgroundColor: COLORS.alert},
+  headerTitleStyle: {color: COLORS.primaryDark},
+};
+
+const alertBarHome = {
+  headerTitle: () => <HeaderAlertHome />,
+  headerStyle: {backgroundColor: COLORS.alert},
+  headerTitleStyle: {color: COLORS.primaryDark, marginLeft: 50},
+};
+
+const preloadStyle = {
+  headerShown: false,
+};
