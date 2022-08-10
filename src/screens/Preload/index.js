@@ -46,12 +46,12 @@ const Preload = ({navigation}) => {
       //     }
       //   });
     } else {
-      // navigation.dispatch(
-      //   CommonActions.reset({
-      //     index: 0,
-      //     routes: [{name: 'SignIn'}],
-      //   }),
-      // );
+      navigation.dispatch(
+        CommonActions.reset({
+          index: 0,
+          routes: [{name: 'SignIn'}],
+        }),
+      );
     }
   };
   useEffect(() => {

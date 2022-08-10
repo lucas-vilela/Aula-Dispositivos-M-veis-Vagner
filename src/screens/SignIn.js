@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import React, {useState} from 'react';
 import {
   View,
@@ -30,18 +31,12 @@ const SignIn = ({navigation}) => {
       const jsonValue = JSON.stringify(value);
       await AsyncStorage.setItem('user', jsonValue);
       setLoading(false);
-      // navigation.dispatch(
-      //   CommonActions.reset({
-      //     index: 0,
-      //     routes: [{name: 'Alunos'}],
-      //   }),
-      // );
     } catch (e) {
       console.log('SignIn: erro em storeUserCache:' + e);
     }
   };
 
-  const getUser = () => {
+  const getUser = async () => {
     firestore()
       .collection('users')
       .doc(auth().currentUser.uid)
@@ -65,7 +60,7 @@ const SignIn = ({navigation}) => {
     if (email !== '' && pass !== '') {
       auth()
         .signInWithEmailAndPassword(email, pass)
-        .then(() => {
+        .then(async() => {
           if (!auth().currentUser.emailVerified) {
             setLoading(false);
             Alert.alert(
@@ -74,7 +69,13 @@ const SignIn = ({navigation}) => {
             );
             return;
           }
-          getUser();
+          await getUser();
+          navigation.dispatch(
+          CommonActions.reset({
+            index: 0,
+            routes: [{name: 'Usuarios'}],
+          }),
+        );
         })
         .catch(e => {
           setLoading(false);
