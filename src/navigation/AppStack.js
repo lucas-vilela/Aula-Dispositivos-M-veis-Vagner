@@ -63,9 +63,9 @@ const preloadStyle = {
 
 const SignInBar = {
   //headerShown: false,
-  headerTitle: () => <HeaderDark />,
+  headerTitle: () => <HeaderAlertHome />,
   headerMode: 'float',
-  headerStyle: {backgroundColor: COLORS.primaryDark},
+  headerStyle: {backgroundColor: COLORS.alert},
 };
 
 const alertBar = {

@@ -5,7 +5,7 @@ export const Container = styled.SafeAreaView`
   flex: 1;
   align-items: center;
   justify-content: center;
-  background-color: ${COLORS.alert};
+  background-color: ${COLORS.primaryDark};
 `;
 
 export const Image = styled.Image`

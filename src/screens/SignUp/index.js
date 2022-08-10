@@ -108,55 +108,55 @@ const SignUp = ({navigation}) => {
     <Body>
       <Text>Nome Completo</Text>
       <TextInput
-        ref={ref => {
-          this.nomeTextInput = ref;
-        }}
+        // ref={ref => {
+        //   this.nomeTextInput = ref;
+        // }}
         keyboardType="default"
         returnKeyType="next"
         onChangeText={t => setNome(t)}
-        onEndEditing={() => this.celTextInput.focus()}
+        //onEndEditing={() => this.celTextInput.focus()}
       />
       <Text>Celular</Text>
       <TextInput
-        ref={ref => {
-          this.celTextInput = ref;
-        }}
+        // ref={ref => {
+        //   this.celTextInput = ref;
+        // }}
         keyboardType="phone-pad"
         returnKeyType="next"
         onChangeText={t => setCelular(t)}
-        onEndEditing={() => this.emailTextInput.focus()}
+        //onEndEditing={() => this.emailTextInput.focus()}
       />
       <Text>E-mail</Text>
       <TextInput
-        ref={ref => {
-          this.emailTextInput = ref;
-        }}
+        // ref={ref => {
+        //   this.emailTextInput = ref;
+        // }}
         keyboardType="email-address"
         returnKeyType="next"
         onChangeText={t => setEmail(t)}
-        onEndEditing={() => this.passTextInput.focus()}
+        //onEndEditing={() => this.passTextInput.focus()}
       />
       <Text>Senha</Text>
       <TextInput
-        ref={ref => {
-          this.passTextInput = ref;
-        }}
+        // ref={ref => {
+        //   this.passTextInput = ref;
+        // }}
         secureTextEntry={true}
         keyboardType="default"
         returnKeyType="next"
         onChangeText={t => setPass(t)}
-        onEndEditing={() => this.passConfirmTextInput.focus()}
+        //onEndEditing={() => this.passConfirmTextInput.focus()}
       />
       <Text>Confirmação da Senha</Text>
       <TextInput
-        ref={ref => {
-          this.passConfirmTextInput = ref;
-        }}
+        // ref={ref => {
+        //   this.passConfirmTextInput = ref;
+        // }}
         secureTextEntry={true}
         keyboardType="default"
         returnKeyType="send"
         onChangeText={t => setPassConfirm(t)}
-        onEndEditing={() => cadastrar()}
+        //onEndEditing={() => cadastrar()}
       />
       <MeuButton texto="Cadastrar" onClick={cadastrar} />
       {loading && <Loading />}

@@ -13,6 +13,7 @@ const View = styled.View`
 const Image = styled.Image`
   width: 163px;
   height: 53px;
+  //margin: 10px 0 10px 82px;
 `;
 
 const Header = () => {

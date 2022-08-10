@@ -9,6 +9,7 @@ import {
   SafeAreaView,
   ScrollView,
   Alert,
+  StatusBar,
 } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import MeuButton from '../components/MeuButton';
@@ -125,13 +126,13 @@ const SignIn = ({navigation}) => {
             keyboardType="email-address"
             returnKeyType="next"
             onChangeText={t => setEmail(t)}
-            onEndEditing={() => this.passTextInput.focus()}
+            //onEndEditing={() => this.passTextInput.focus()}
           />
           <Text style={styles.labels}>Senha</Text>
           <TextInput
-            ref={ref => {
-              this.passTextInput = ref;
-            }}
+            // ref={ref => {
+            //   this.passTextInput = ref;
+            // }}
             style={styles.input}
             keyboardType="default"
             returnKeyType="go"
@@ -154,6 +155,7 @@ const SignIn = ({navigation}) => {
         </View>
       </ScrollView>
       {loading && <Loading />}
+      <StatusBar backgroundColor="#fed32c" barStyle="dark-content" />
     </SafeAreaView>
   );
 };
