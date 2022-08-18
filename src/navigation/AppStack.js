@@ -7,7 +7,7 @@ import {COLORS} from '../assets/colors';
 import SignIn from '../screens/SignIn';
 import SignUp from '../screens/SignUp';
 import ForgotPassWord from '../screens/ForgotPassWord';
-import HeaderDark from '../components/HeaderDark';
+//import HeaderDark from '../components/HeaderDark';
 import HeaderAlert from '../components/HeaderAlert';
 import Preload from '../screens/Preload';
 import Student from '../screens/Student';
@@ -37,7 +37,7 @@ const AppStack = () => {
         <Stack.Screen name="Cursos" component={Courses} options={alertBar} />
         <Stack.Screen name="Curso" component={Course} options={alertBar} />
         <Stack.Screen name="Usuarios" component={Users} options={alertBar} />
-        <Stack.Screen name="Usuário" component={User} options={alertBar} />
+        <Stack.Screen name="User" component={User} options={alertBar} />
         <Stack.Screen name="SignIn" component={SignIn} options={SignInBar} />
         <Stack.Screen name="SignUp" component={SignUp} options={alertBar} />
         <Stack.Screen

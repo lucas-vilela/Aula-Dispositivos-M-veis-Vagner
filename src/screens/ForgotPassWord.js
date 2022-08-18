@@ -38,7 +38,7 @@ const ForgotPassWord = ({navigation}) => {
               Alert.alert('Erro', 'E-mail inválido');
               break;
             case 'auth/user-disabled':
-              Alert.alert('Erro', 'Usuário disabilitado');
+              Alert.alert('Erro', 'Usuário desabilitado');
               break;
           }
         });
