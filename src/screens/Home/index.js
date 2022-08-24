@@ -1,9 +1,9 @@
 import React from 'react';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
-import GinasiosTab from '../Ginasios';
-import EsportesTab from '../';
-import QuadrasTab from '../Quadras';
-import UsersTab from '../Users';
+import Ginasios from '../Ginasios';
+import Esportes from '../Esportes';
+import Quadras from '../Quadras';
+import Users from '../Users';
 import {COLORS} from '../../assets/colors';
 
 const Home = () => {
@@ -24,10 +24,10 @@ const Home = () => {
         tabBarActiveTintColor: COLORS.alert,
         tabBarInactiveTintColor: COLORS.white,
       }}>
-      <Tab.Screen name="Ginasios" component={GinasiosTab} />
-      <Tab.Screen name="Esportes" component={EsportesTab} />
-      <Tab.Screen name="Quadras" component={QuadrasTab} />
-      <Tab.Screen name="Usuarios" component={UsersTab} />
+      <Tab.Screen name="Ginasios" component={Ginasios} />
+      <Tab.Screen name="Esportes" component={Esportes} />
+      <Tab.Screen name="Quadras" component={Quadras} />
+      <Tab.Screen name="Usuarios" component={Users} />
     </Tab.Navigator>
   );
 };

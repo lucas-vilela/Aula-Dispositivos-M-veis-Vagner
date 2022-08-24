@@ -17,6 +17,7 @@ import HeaderAlertHome from '../components/HeaderAlertHome';
 import Users from '../screens/Users';
 import User from '../screens/User';
 import Students from '../screens/Students';
+import Home from '../screens/Home';
 
 const Stack = createNativeStackNavigator();
 const AppStack = () => {
@@ -40,6 +41,7 @@ const AppStack = () => {
         <Stack.Screen name="User" component={User} options={alertBar} />
         <Stack.Screen name="SignIn" component={SignIn} options={SignInBar} />
         <Stack.Screen name="SignUp" component={SignUp} options={alertBar} />
+        <Stack.Screen name="Home" component={Home} options={alertBar} />
         <Stack.Screen
           name="ForgotPassWord"
           component={ForgotPassWord}

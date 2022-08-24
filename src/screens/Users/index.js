@@ -8,6 +8,7 @@ import {CommonActions} from '@react-navigation/native';
 import Loading from '../../components/Loading';
 import {StatusBar} from 'react-native';
 
+
 const Users = ({navigation}) => {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
