@@ -1,11 +1,14 @@
-import React, {useEffect} from 'react';
+import React, {useContext, useEffect} from 'react';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import auth from '@react-native-firebase/auth';
 import {Alert} from 'react-native';
 import {CommonActions} from '@react-navigation/native';
 import {Container, Image} from './styles';
 
+import {GinasioContext} from '../../context/GianasioProvider';
+
 const Preload = ({navigation}) => {
+  const {getGinasios} = useContext(GinasioContext);
   const getUserCache = async () => {
     try {
       const jsonValue = await AsyncStorage.getItem('user');
@@ -54,8 +57,14 @@ const Preload = ({navigation}) => {
       );
     }
   };
+  
   useEffect(() => {
     loginUser();
+    // const unsubscribeGinasios = getGinasios();
+
+    // return () => {
+    //   unsubscribeGinasios;
+    // };
   }, []);
   return (
     <Container>

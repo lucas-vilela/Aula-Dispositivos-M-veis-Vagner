@@ -5,7 +5,7 @@ import {StatusBar} from 'react-native';
 const Ginasios = () => {
   return (
     <Container>
-      <Text>Screen Ginásios</Text>
+      <Text>Screen Quadras</Text>
       <StatusBar backgroundColor="#fed32c" barStyle="dark-content" />
     </Container>
   );

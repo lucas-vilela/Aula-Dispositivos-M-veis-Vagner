@@ -62,7 +62,6 @@ const User = ({route, navigation}) => {
         onChangeText={t => setCelular(t)}
       />
       <TextInput placeholder="Email" editable={false} value={email} />
-
       <MeuButton texto="Salvar" onClick={salvar} />
       {loading && <Loading />}
       <StatusBar backgroundColor="#fed32c" barStyle="dark-content" />

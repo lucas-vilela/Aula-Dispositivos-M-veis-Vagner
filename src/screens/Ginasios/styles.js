@@ -14,3 +14,9 @@ export const Text = styled.Text`
   color: ${COLORS.danger};
   font-family: 'Ubuntu-Bold';
 `;
+
+export const FlatList = styled.FlatList`
+  margin-top: 20px;
+  width: 95%;
+  height: 100%;
+`;

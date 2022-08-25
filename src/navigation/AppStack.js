@@ -18,6 +18,12 @@ import Users from '../screens/Users';
 import User from '../screens/User';
 import Students from '../screens/Students';
 import Home from '../screens/Home';
+import Ginasios from '../screens/Ginasios';
+import Ginasio from '../screens/Ginasio';
+import Quadras from '../screens/Quadras';
+import Quadra from '../screens/Quadra';
+import Esportes from '../screens/Esportes';
+import Esporte from '../screens/Esporte';
 
 const Stack = createNativeStackNavigator();
 const AppStack = () => {
@@ -42,6 +48,12 @@ const AppStack = () => {
         <Stack.Screen name="SignIn" component={SignIn} options={SignInBar} />
         <Stack.Screen name="SignUp" component={SignUp} options={alertBar} />
         <Stack.Screen name="Home" component={Home} options={alertBar} />
+        <Stack.Screen name="Ginasios" component={Ginasios} options={alertBar} />
+        <Stack.Screen name="Ginasio" component={Ginasio} options={alertBar} />
+        <Stack.Screen name="Quadras" component={Quadras} options={alertBar} />
+        <Stack.Screen name="Quadra" component={Quadra} options={alertBar} />
+        <Stack.Screen name="Esportes" component={Esportes} options={alertBar} />
+        <Stack.Screen name="Esporte" component={Esporte} options={alertBar} />
         <Stack.Screen
           name="ForgotPassWord"
           component={ForgotPassWord}
