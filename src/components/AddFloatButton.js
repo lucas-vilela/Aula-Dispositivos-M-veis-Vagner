@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components/native';
+import Icon from 'react-native-vector-icons/Ionicons';
 
 import {COLORS} from '../assets/colors';
 
@@ -11,16 +12,20 @@ const Button = styled.TouchableOpacity`
   width: 60px;
   height: 60px;
   position: absolute;
-  bottom: 100px;
-  right: 10px;
-  background-color: ${COLORS.alert};
+  bottom: 40px;
+  right: 15px;
+  background-color: ${COLORS.primary};
   border-radius: 100px;
 `;
 
 // import { Container } from './styles';
 
 const AddFloatButton = ({onClick}) => {
-  return <Button onPress={() => onClick()} />;
+  return (
+    <Button onPress={() => onClick()}>
+      <Icon name="add" size={30} color={COLORS.alert} />
+    </Button>
+  );
 };
 
 export default AddFloatButton;

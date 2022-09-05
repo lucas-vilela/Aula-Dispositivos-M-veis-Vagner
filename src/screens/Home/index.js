@@ -19,11 +19,11 @@ const Home = () => {
         unmountOnBlur: true,
         tabBarStyle: {
           borderTopWidth: 0,
-          position: 'absolute',
+          // position: 'absolute',
           backgroundColor: COLORS.primaryDark,
           height: 60,
-          margin: 20,
-          borderRadius: 10,
+          //margin: 20,
+          //borderRadius: 10,
         },
         tabBarActiveTintColor: COLORS.alert,
         tabBarInactiveTintColor: COLORS.white,
@@ -41,9 +41,47 @@ const Home = () => {
           },
         }}
       />
-      <Tab.Screen name="Esportes" component={Esportes} />
-      <Tab.Screen name="Quadras" component={Quadras} />
-      <Tab.Screen name="Usuarios" component={Users} />
+      <Tab.Screen
+        name="Esportes"
+        component={Esportes}
+        options={{
+          tabBarIcon: ({color, size, focused}) => {
+            if (focused) {
+              return <Icon name="search" size={size} color={color} />;
+            }
+
+            return <Icon name="search-outline" size={size} color={color} />;
+          },
+        }}
+      />
+      <Tab.Screen
+        name="Quadras"
+        component={Quadras}
+        options={{
+          tabBarIcon: ({color, size, focused}) => {
+            if (focused) {
+              return <Icon name="ios-calendar" size={size} color={color} />;
+            }
+
+            return (
+              <Icon name="ios-calendar-outline" size={size} color={color} />
+            );
+          },
+        }}
+      />
+      <Tab.Screen
+        name="Usuarios"
+        component={Users}
+        options={{
+          tabBarIcon: ({color, size, focused}) => {
+            if (focused) {
+              return <Icon name="person" size={size} color={color} />;
+            }
+
+            return <Icon name="person-outline" size={size} color={color} />;
+          },
+        }}
+      />
     </Tab.Navigator>
   );
 };

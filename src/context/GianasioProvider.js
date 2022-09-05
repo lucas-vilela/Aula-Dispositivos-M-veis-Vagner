@@ -20,6 +20,8 @@ export const GinasioProvider = ({children}) => {
               nome: doc.data().nome,
               cep: doc.data().cep,
               telefone: doc.data().telefone,
+              endereco: doc.data().endereco,
+              distancia: doc.data().distancia,
             };
             d.push(val);
           });

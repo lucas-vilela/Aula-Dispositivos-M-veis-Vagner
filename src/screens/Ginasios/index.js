@@ -7,6 +7,7 @@ import firestore from '@react-native-firebase/firestore';
 import Item from './Item';
 import Loading from '../../components/Loading';
 import AddFloatButton from '../../components/AddFloatButton';
+import Esportes from '../Esportes';
 //import GinasioContext from '../../context/GianasioProvider';
 
 const Ginasios = ({navigation}) => {
@@ -38,6 +39,8 @@ const Ginasios = ({navigation}) => {
               nome: doc.data().nome,
               cep: doc.data().cep,
               telefone: doc.data().telefone,
+              distancia: doc.data().distancia,
+              endereco: doc.data().endereco,
             };
             d.push(val);
           });
@@ -77,8 +80,10 @@ const Ginasios = ({navigation}) => {
 
   return (
     <Container>
+      <Esportes />
       <FlatList
         data={data}
+        //horizontal
         renderItem={renderItem}
         keyExtractor={item => item.uid}
       />

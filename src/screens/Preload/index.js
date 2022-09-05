@@ -6,9 +6,12 @@ import {CommonActions} from '@react-navigation/native';
 import {Container, Image} from './styles';
 
 import {GinasioContext} from '../../context/GianasioProvider';
+import {EsporteContext} from '../../context/EsporteProvider';
 
 const Preload = ({navigation}) => {
-  const {getGinasios} = useContext(GinasioContext);
+  //const {getGinasios} = useContext(GinasioContext);
+  const {getEsportes} = useContext(EsporteContext);
+
   const getUserCache = async () => {
     try {
       const jsonValue = await AsyncStorage.getItem('user');
@@ -65,6 +68,12 @@ const Preload = ({navigation}) => {
     // return () => {
     //   unsubscribeGinasios;
     // };
+
+    const unsubscribeEsportes = getEsportes();
+
+    return () => {
+      unsubscribeEsportes;
+    };
   }, []);
   return (
     <Container>

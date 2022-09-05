@@ -3,9 +3,11 @@ import {COLORS} from '../../assets/colors';
 
 export const Container = styled.SafeAreaView`
   flex: 1;
+  //flex-direction: row;
+  //align-items: flex-start;
   align-items: center;
   justify-content: center;
-  padding-top: 20px;
+  //padding-top: 20px;
   background-color: ${COLORS.primaryDark};
 `;
 
@@ -16,7 +18,8 @@ export const Text = styled.Text`
 `;
 
 export const FlatList = styled.FlatList`
-  margin-top: 20px;
-  width: 95%;
-  height: 100%;
+  /* margin-top: 20px; */
+  width: 90%;
+  /* height: 100%; */
+  
 `;

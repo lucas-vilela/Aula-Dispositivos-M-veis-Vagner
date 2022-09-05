@@ -8,6 +8,8 @@ import DeleteButton from '../../components/DeleteButton';
 
 const Ginasio = ({route, navigation}) => {
   const [nome, setNome] = useState('');
+  const [endereco, setEndereco] = useState('');
+  const [distancia, setDistancia] = useState('');
   const [cep, setCep] = useState('');
   const [telefone, setTelefone] = useState('');
   const [id, setId] = useState('');
@@ -19,12 +21,16 @@ const Ginasio = ({route, navigation}) => {
     setNome('');
     setCep('');
     setId('');
+    setEndereco('');
+    setDistancia('');
     setTelefone('');
     if (route.params.ginasio) {
       setNome(route.params.ginasio.nome);
       setCep(route.params.ginasio.cep);
       setId(route.params.ginasio.uid);
       setTelefone(route.params.ginasio.telefone);
+      setDistancia(route.params.ginasio.distancia);
+      setEndereco(route.params.ginasio.endereco);
     }
   }, []);
 
@@ -53,9 +59,11 @@ const Ginasio = ({route, navigation}) => {
       .doc(id)
       .set(
         {
-          nome: nome,
-          cep: cep,
-          telefone: telefone,
+          nome,
+          cep,
+          telefone,
+          endereco,
+          distancia,
         },
         {merge: true},
       )
@@ -97,6 +105,16 @@ const Ginasio = ({route, navigation}) => {
         placeholder="Nome"
         onChangeText={t => setNome(t)}
         value={nome}
+      />
+      <TextInput
+        placeholder="Endereco"
+        onChangeText={t => setEndereco(t)}
+        value={endereco}
+      />
+      <TextInput
+        placeholder="Distancia"
+        onChangeText={t => setDistancia(t)}
+        value={distancia}
       />
       <TextInput
         placeholder="Telefone"
