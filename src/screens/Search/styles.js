@@ -4,9 +4,9 @@ import {COLORS} from '../../assets/colors';
 export const Container = styled.SafeAreaView`
   flex: 1;
   //flex-direction: row;
-  //align-items: flex-start;
   align-items: center;
-  justify-content: flex-start;
+  justify-content: center;
+  align-content: flex-start;
   //padding-top: 20px;
   background-color: ${COLORS.primaryDark};
 `;
@@ -18,8 +18,5 @@ export const Text = styled.Text`
 `;
 
 export const FlatList = styled.FlatList`
-  /* margin-top: 20px; */
-  width: 90%;
-  /* height: 100%; */
-  
+  width: 100%; 
 `;

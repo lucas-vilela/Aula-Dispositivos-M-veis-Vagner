@@ -84,6 +84,7 @@ const Ginasios = ({navigation}) => {
       <FlatList
         data={data}
         //horizontal
+        showsVerticalScrollIndicator={false}
         renderItem={renderItem}
         keyExtractor={item => item.uid}
       />

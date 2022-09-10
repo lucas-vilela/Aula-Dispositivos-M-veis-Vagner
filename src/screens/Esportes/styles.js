@@ -6,7 +6,7 @@ export const Container = styled.SafeAreaView`
   flex: 1;
   flex-direction: row;
   align-items: flex-start;
-  justify-content: center;
+  justify-content: flex-start;
   /* padding-top: 20px; */
   background-color: ${COLORS.white};
 `;

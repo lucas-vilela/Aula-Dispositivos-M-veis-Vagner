@@ -47,6 +47,7 @@ const Esportes = ({navigation}) => {
       <FlatList
         data={data}
         horizontal
+        showsHorizontalScrollIndicator={false}
         renderItem={renderItem}
         keyExtractor={item => item.uid}
       />

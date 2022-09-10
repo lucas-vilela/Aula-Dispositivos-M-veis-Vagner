@@ -3,10 +3,12 @@ import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import Icon from 'react-native-vector-icons/Ionicons';
 
 import Ginasios from '../Ginasios';
-import Esportes from '../Esportes';
+import Pesquisar from '../Search';
 import Quadras from '../Quadras';
 import Users from '../Users';
 import {COLORS} from '../../assets/colors';
+import Esportes from '../Esportes';
+import Agendamentos from '../Agendamentos';
 
 const Home = () => {
   const Tab = createBottomTabNavigator();
@@ -17,6 +19,7 @@ const Home = () => {
         tabBarShowLabel: false,
         headerShown: false,
         unmountOnBlur: true,
+        tabBarHideOnKeyboard: true,
         tabBarStyle: {
           borderTopWidth: 0,
           // position: 'absolute',
@@ -42,8 +45,8 @@ const Home = () => {
         }}
       />
       <Tab.Screen
-        name="Esportes"
-        component={Esportes}
+        name="Pesquisar"
+        component={Pesquisar}
         options={{
           tabBarIcon: ({color, size, focused}) => {
             if (focused) {
@@ -55,8 +58,8 @@ const Home = () => {
         }}
       />
       <Tab.Screen
-        name="Quadras"
-        component={Quadras}
+        name="Agendamentos"
+        component={Agendamentos}
         options={{
           tabBarIcon: ({color, size, focused}) => {
             if (focused) {

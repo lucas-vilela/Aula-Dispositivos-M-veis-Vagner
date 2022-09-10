@@ -5,14 +5,18 @@ import {AuthUserProvider} from '../context/AuthUserProvider';
 import AppStack from './AppStack';
 //import {GinasioProvider} from '../context/GianasioProvider';
 import {EsporteProvider} from '../context/EsporteProvider';
+import {AgendamentoProvider} from '../context/AgendamentosProvider';
 
 export default function Providers() {
   return (
     <AuthUserProvider>
       {/* <GinasioProvider> */}
-      <EsporteProvider>
-        <AppStack />
-      </EsporteProvider>
+      <AgendamentoProvider>
+        <EsporteProvider>
+          <AppStack />
+        </EsporteProvider>
+      </AgendamentoProvider>
+
       {/* </GinasioProvider> */}
     </AuthUserProvider>
   );
