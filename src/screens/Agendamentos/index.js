@@ -21,41 +21,46 @@ import {CommonActions} from '@react-navigation/native';
 import Icon from 'react-native-vector-icons/Ionicons';
 
 import {AgendamentoContext} from '../../context/AgendamentosProvider';
-import ItemGin from './ItemGin';
-import ItemEsp from './ItemEsp';
+import ItemConf from './ItemConf';
+import ItemPend from './ItemPend';
 import Loading from '../../components/Loading';
 import {COLORS} from '../../assets/colors';
 
 const Agendamentos = ({navigation}) => {
-  const [data, setData] = useState([]);
+  const [data, setData] = useState(null);
   const [loading, setLoading] = useState(false);
   const {agendamentos} = useContext(AgendamentoContext);
 
   useEffect(() => {
     setData(agendamentos);
+    console.log(data);
   }, [agendamentos]);
 
-  const routeGinasio = item => {
-    //setLoading(true);
-    navigation.dispatch(
-      CommonActions.navigate({
-        name: 'Ginasio',
-        params: {ginasio: item},
-      }),
-    );
-    //setLoading(false);
-  };
+  // const routeGinasio = item => {
+  //   //setLoading(true);
+  //   navigation.dispatch(
+  //     CommonActions.navigate({
+  //       name: 'Ginasio',
+  //       params: {ginasio: item},
+  //     }),
+  //   );
+  //   //setLoading(false);
+  // };
   const routeHome = () => {
-    
     navigation.dispatch(
       CommonActions.navigate({
         name: 'Ginasios',
       }),
     );
   };
-  const renderItem = ({item}) => (
-    <Item item={item} onPress={() => routeGinasio(item)} />
+  const renderItemConf = ({item}) => (
+    <ItemConf item={item} onPress={() => alert('Agendamento Modal detalhes')} />
   );
+
+  const renderItemPend = ({item}) => (
+    <ItemPend item={item} onPress={() => alert('Agendamento Modal detalhes')} />
+  );
+
   return (
     <Container>
       <DivTexto>
@@ -75,14 +80,16 @@ const Agendamentos = ({navigation}) => {
         </IconeSection>
       </DivTextoSection>
       <DivLinha />
-      {/* <FlatList
-        style={styles.esportesScrollView}
-        data={data}
-        //horizontal
-        showsHorizontalScrollIndicator={false}
-        renderItem={renderItem}
-        keyExtractor={item => item.uid}
-      /> */}
+      {data && (
+        <FlatList
+          // style={styles.esportesScrollView}
+          data={data}
+          //horizontal
+          showsHorizontalScrollIndicator={false}
+          renderItem={renderItemConf}
+          keyExtractor={item => item.uid}
+        />
+      )}
       <DivTextoSection>
         <TextoSection>Pendentes</TextoSection>
         <IconeSection>
@@ -90,29 +97,31 @@ const Agendamentos = ({navigation}) => {
         </IconeSection>
       </DivTextoSection>
       <DivLinha />
-      {/* <FlatList
-        data={data}
-        //horizontal
-        showsVerticalScrollIndicator={false}
-        renderItem={renderItem}
-        keyExtractor={item => item.uid}
-      /> */}
-      <DivMsg>
-        <TextoMsgSup>Você ainda não tem nenhum agendamento:</TextoMsgSup>
-        <TextoMsgInf>Bora juntar a galera e...</TextoMsgInf>
-        <DivLogo>
-          <TouchableOpacity onPress={() => routeHome()}>
-            <Imagem source={require('../../assets/images/MarcaiCTA.png')} />
-          </TouchableOpacity>
-        </DivLogo>
-      </DivMsg>
+      {data && (
+        <FlatList
+          data={data}
+          //horizontal
+          showsVerticalScrollIndicator={false}
+          renderItem={renderItemPend}
+          keyExtractor={item => item.uid}
+        />
+      )}
+      {!data && (
+        <DivMsg>
+          <TextoMsgSup>Você ainda não tem nenhum agendamento:</TextoMsgSup>
+          <TextoMsgInf>Bora juntar a galera e...</TextoMsgInf>
+          <DivLogo>
+            <TouchableOpacity onPress={() => routeHome()}>
+              <Imagem source={require('../../assets/images/MarcaiCTA.png')} />
+            </TouchableOpacity>
+          </DivLogo>
+        </DivMsg>
+      )}
       {/* <AddFloatButton onClick={routeAddGinasio} /> */}
       {loading && <Loading />}
       <StatusBar backgroundColor="#fed32c" barStyle="dark-content" />
     </Container>
   );
 };
-
-const styles = StyleSheet.create({});
 
 export default Agendamentos;

@@ -5,7 +5,7 @@ import firestore from '@react-native-firebase/firestore';
 export const AgendamentoContext = createContext({});
 
 export const AgendamentoProvider = ({children}) => {
-  const [Agendamentos, setAgendamentos] = useState([]);
+  const [agendamentos, setAgendamentos] = useState([]);
 
   const getAgendamentos = () => {
     const unsubscribe = firestore()
@@ -78,7 +78,7 @@ export const AgendamentoProvider = ({children}) => {
 
   return (
     <AgendamentoContext.Provider
-      value={{Agendamentos, getAgendamentos, salvar, excluir}}>
+      value={{agendamentos, getAgendamentos, salvar, excluir}}>
       {children}
     </AgendamentoContext.Provider>
   );
