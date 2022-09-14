@@ -9,6 +9,7 @@ import Users from '../Users';
 import {COLORS} from '../../assets/colors';
 import Esportes from '../Esportes';
 import Agendamentos from '../Agendamentos';
+import Preferencias from '../Preferencias';
 
 const Home = () => {
   const Tab = createBottomTabNavigator();
@@ -21,7 +22,8 @@ const Home = () => {
         unmountOnBlur: true,
         tabBarHideOnKeyboard: true,
         tabBarStyle: {
-          borderTopWidth: 0,
+          borderTopWidth: 1,
+          borderTopColor: COLORS.primary,
           // position: 'absolute',
           backgroundColor: COLORS.primaryDark,
           height: 60,
@@ -73,8 +75,8 @@ const Home = () => {
         }}
       />
       <Tab.Screen
-        name="Usuarios"
-        component={Users}
+        name="Preferencias"
+        component={Preferencias}
         options={{
           tabBarIcon: ({color, size, focused}) => {
             if (focused) {
