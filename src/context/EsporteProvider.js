@@ -14,7 +14,7 @@ export const EsporteProvider = ({children}) => {
         querySnapshot => {
           let d = [];
           querySnapshot.forEach(doc => {
-            console.log(doc.id, ' => ', doc.data());
+            //console.log(doc.id, ' => ', doc.data());
             const val = {
               uid: doc.id,
               modalidade: doc.data().modalidade,

@@ -12,6 +12,8 @@ const Ginasio = ({route, navigation}) => {
   const [distancia, setDistancia] = useState('');
   const [cep, setCep] = useState('');
   const [telefone, setTelefone] = useState('');
+  const [latitude, setLatitude] = useState('');
+  const [longitude, setLongitude] = useState('');
   const [id, setId] = useState('');
 
   const [loading, setLoading] = useState(false);
@@ -24,6 +26,8 @@ const Ginasio = ({route, navigation}) => {
     setEndereco('');
     setDistancia('');
     setTelefone('');
+    setLatitude('');
+    setLongitude('');
     if (route.params.ginasio) {
       setNome(route.params.ginasio.nome);
       setCep(route.params.ginasio.cep);
@@ -31,6 +35,8 @@ const Ginasio = ({route, navigation}) => {
       setTelefone(route.params.ginasio.telefone);
       setDistancia(route.params.ginasio.distancia);
       setEndereco(route.params.ginasio.endereco);
+      setLatitude(route.params.ginasio.latitude);
+      setLongitude(route.params.ginasio.longitude);
     }
   }, []);
 
@@ -59,6 +65,8 @@ const Ginasio = ({route, navigation}) => {
       .doc(id)
       .set(
         {
+          latitude,
+          longitude,
           nome,
           cep,
           telefone,
@@ -122,6 +130,16 @@ const Ginasio = ({route, navigation}) => {
         onChangeText={t => setTelefone(t)}
       />
       <TextInput placeholder="Cep" value={cep} onChangeText={t => setCep(t)} />
+      <TextInput
+        placeholder="Latitude"
+        value={latitude}
+        onChangeText={t => setLatitude(t)}
+      />
+      <TextInput
+        placeholder="Longitude"
+        value={longitude}
+        onChangeText={t => setLongitude(t)}
+      />
       <MeuButton texto="Salvar" onClick={salvar} />
       {id ? <DeleteButton texto="Excluir" onClick={excluir} /> : null}
       {loading && <Loading />}

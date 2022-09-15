@@ -81,7 +81,7 @@ const Users = ({item, onPress}) => {
             <TextDistancia>{item.distancia}</TextDistancia>
             <TextName>{item.nome}</TextName>
           </DivTopTexto>
-          <VerQuadrasButton texto={'Ver quadras'}/>
+          <VerQuadrasButton texto={'Ver quadras'} onPress={onPress}/>
           <DivDownTexto>
             <DivIcon>
               <Icon name="location-outline" size={16} color='#FFF'/>

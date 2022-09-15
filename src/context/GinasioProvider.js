@@ -1,5 +1,4 @@
-import React, {useState} from 'react';
-import {createContext} from 'react';
+import React, {useState, createContext} from 'react';
 import firestore from '@react-native-firebase/firestore';
 
 export const GinasioContext = createContext({});
@@ -22,6 +21,8 @@ export const GinasioProvider = ({children}) => {
               telefone: doc.data().telefone,
               endereco: doc.data().endereco,
               distancia: doc.data().distancia,
+              latitude: doc.data().latitude,
+              longitude: doc.data().longitude,
             };
             d.push(val);
           });

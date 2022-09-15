@@ -54,7 +54,7 @@ const Agendamentos = ({navigation}) => {
 
   useEffect(() => {
     //setData(agendamentos);
-    console.log(data);
+    //console.log(data);
   }, [agendamentos]);
 
   // const routeGinasio = item => {

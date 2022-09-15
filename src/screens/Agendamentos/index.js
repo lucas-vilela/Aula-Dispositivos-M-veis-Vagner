@@ -33,7 +33,7 @@ const Agendamentos = ({navigation}) => {
 
   useEffect(() => {
     setData(agendamentos);
-    console.log(data);
+    //console.log(data);
   }, [agendamentos]);
 
   // const routeGinasio = item => {
@@ -53,12 +53,24 @@ const Agendamentos = ({navigation}) => {
       }),
     );
   };
+
+  const routeGinasioMap = item => {
+    //setLoading(true);
+    navigation.dispatch(
+      CommonActions.navigate({
+        name: 'GinasioMap',
+        params: {ginasio: item},
+      }),
+    );
+    //setLoading(false);
+  };
+
   const renderItemConf = ({item}) => (
-    <ItemConf item={item} onPress={() => alert('Agendamento Modal detalhes')} />
+    <ItemConf item={item} onPress={() => routeGinasioMap(item)} />
   );
 
   const renderItemPend = ({item}) => (
-    <ItemPend item={item} onPress={() => alert('Agendamento Modal detalhes')} />
+    <ItemPend item={item} onPress={() => routeGinasioMap(item)} />
   );
 
   return (

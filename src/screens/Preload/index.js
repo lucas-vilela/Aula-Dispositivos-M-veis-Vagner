@@ -5,12 +5,12 @@ import {Alert} from 'react-native';
 import {CommonActions} from '@react-navigation/native';
 import {Container, Image} from './styles';
 
-//import {GinasioContext} from '../../context/GianasioProvider';
+import {GinasioContext} from '../../context/GinasioProvider';
 import {EsporteContext} from '../../context/EsporteProvider';
 import {AgendamentoContext} from '../../context/AgendamentosProvider';
 
 const Preload = ({navigation}) => {
-  //const {getGinasios} = useContext(GinasioContext);
+  const {getGinasios} = useContext(GinasioContext);
   const {getEsportes} = useContext(EsporteContext);
   const {getAgendamentos} = useContext(AgendamentoContext);
 
@@ -66,14 +66,14 @@ const Preload = ({navigation}) => {
   useEffect(() => {
     loginUser();
 
-    // const unsubscribeGinasios = getGinasios();
+    const unsubscribeGinasios = getGinasios();
     const unsubscribeEsportes = getEsportes();
     const unsubscribeAgendamentos = getAgendamentos();
 
     return () => {
       unsubscribeEsportes;
       unsubscribeAgendamentos;
-      //   unsubscribeGinasios;
+      unsubscribeGinasios;
     };
   }, []);
   return (

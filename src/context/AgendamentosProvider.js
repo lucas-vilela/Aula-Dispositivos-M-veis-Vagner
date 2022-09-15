@@ -14,7 +14,7 @@ export const AgendamentoProvider = ({children}) => {
         querySnapshot => {
           let d = [];
           querySnapshot.forEach(doc => {
-            console.log(doc.id, ' => ', doc.data());
+            //console.log(doc.id, ' => ', doc.data());
             const val = {
               uid: doc.id,
               modalidade: doc.data().modalidade,
@@ -26,6 +26,8 @@ export const AgendamentoProvider = ({children}) => {
               status: doc.data().status,
               preco: doc.data().preco,
               quadra: doc.data().quadra,
+              latitude: doc.data().latitude,
+              longitude: doc.data().longitude,
             };
             d.push(val);
           });
@@ -56,6 +58,8 @@ export const AgendamentoProvider = ({children}) => {
           status: Agendamento.status,
           preco: Agendamento.preco,
           quadra: Agendamento.quadra,
+          latitude: Agendamento.latitude,
+          longitude: Agendamento.longitude,
         },
         {merge: true},
       )

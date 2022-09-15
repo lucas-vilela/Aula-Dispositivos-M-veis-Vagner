@@ -1,11 +1,11 @@
 import React from 'react';
-import {Text, StyleSheet, TouchableHighlight} from 'react-native';
+import {Text, StyleSheet, TouchableOpacity} from 'react-native';
 import {COLORS} from '../assets/colors';
 const VerQuadrasButton = props => {
   return (
-    <TouchableHighlight style={styles.button} onPress={() => props.onClick()}>
+    <TouchableOpacity style={styles.button} onPress={() => props.onPress()}>
       <Text style={styles.texto}>{props.texto}</Text>
-    </TouchableHighlight>
+    </TouchableOpacity>
   );
 };
 export default VerQuadrasButton;
