@@ -10,39 +10,40 @@ const GinasioMap = ({navigation, route}) => {
   const {ginasios} = useContext(GinasioContext);
   const [latitude, setLatitude] = useState(0);
   const [longitude, setLongitude] = useState(0);
-  const [uid, setUid] = useState('');
-  const [nome, setNome] = useState('');
-  const [telefone, setTelefone] = useState('');
+  // const [uid, setUid] = useState('');
+  // const [nome, setNome] = useState('');
+  // const [telefone, setTelefone] = useState('');
 
   useEffect(() => {
-    setUid(route.params.ginasio.uid);
-    setNome(route.params.ginasio.ginasio);
-    setTelefone(route.params.ginasio.endereco);
+    //Nesse useEffect eu pego as coordenadas para regiao inicial do item agendamento
+    // setUid(route.params.ginasio.uid);
+    // setNome(route.params.ginasio.ginasio);
+    // setTelefone(route.params.ginasio.endereco);
     setLatitude(Number(route.params.ginasio.latitude));
     setLongitude(Number(route.params.ginasio.longitude));
-    console.log(nome);
+    // console.log(nome);
   }, []);
 
   let coords = {latitude: latitude, longitude: longitude};
 
-  // useEffect(() => {
-  //   let data = [];
-  //   ginasios.map(gin => {
-  //     data.push({
-  //       key: gin.latitude,
-  //       coords: {
-  //         latitude: Number(gin.latitude),
-  //         longitude: Number(gin.longitude),
-  //       },
-  //       title: gin.nome,
-  //       description: gin.telefone,
-  //       imagem: require('../../assets/images/pin_map_gin.png'),
-  //     });
-  //   });
-  //   console.log(data);
-  //   setMarkers(data);
-
-  // }, [ginasios]);
+  useEffect(() => {
+    // Nesse useEffect eu trago todos pontos do Provider de Ginásios
+    let data = [];
+    ginasios.map(gin => {
+      data.push({
+        key: gin.latitude,
+        coords: {
+          latitude: Number(gin.latitude),
+          longitude: Number(gin.longitude),
+        },
+        title: gin.nome,
+        description: gin.telefone,
+        imagem: require('../../assets/images/pin_map_gin.png'),
+      });
+    });
+    console.log(data);
+    setMarkers(data);
+  }, [ginasios]);
 
   return (
     <View style={styles.container}>
@@ -55,25 +56,25 @@ const GinasioMap = ({navigation, route}) => {
         initialRegion={{
           latitude: latitude,
           longitude: longitude,
-          latitudeDelta: 0.015,
+          latitudeDelta: 0.005,
           longitudeDelta: 0.0121,
         }}>
-        {/* {markers.map((marker) => (
+        {markers.map(marker => (
           <Marker
-            key={marker.id}
+            key={marker.uid}
             coordinate={marker.coords}
             title={marker.title}
             description={marker.description}
             image={marker.imagem}
           />
-        ))} */}
-        <Marker
+        ))}
+        {/* <Marker
           key={uid}
           coordinate={coords}
           title={nome}
           description={telefone}
           image={require('../../assets/images/pin_map_gin.png')}
-        />
+        /> */}
       </MapView>
     </View>
   );

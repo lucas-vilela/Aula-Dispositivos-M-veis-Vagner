@@ -65,16 +65,16 @@ const Ginasios = ({navigation}) => {
     //setLoading(false);
   };
 
-  // const routeGinasioMap = item => {
-  //   //setLoading(true);
-  //   navigation.dispatch(
-  //     CommonActions.navigate({
-  //       name: 'GinasioMap',
-  //       params: {ginasio: item},
-  //     }),
-  //   );
-  //   //setLoading(false);
-  // };
+  const routeGinasioMap = item => {
+    //setLoading(true);
+    navigation.dispatch(
+      CommonActions.navigate({
+        name: 'GinasioMap',
+        params: {ginasio: item},
+      }),
+    );
+    //setLoading(false);
+  };
 
 
 
