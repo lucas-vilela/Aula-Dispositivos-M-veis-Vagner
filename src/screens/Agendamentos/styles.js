@@ -3,11 +3,9 @@ import {COLORS} from '../../assets/colors';
 
 export const Container = styled.SafeAreaView`
   flex: 1;
-  //flex-direction: row;
-  //align-items: flex-start;
   align-items: center;
   justify-content: flex-start;
-  //padding-top: 20px;
+  align-content: flex-start;
   background-color: ${COLORS.primaryDark};
 `;
 
@@ -18,16 +16,15 @@ export const Text = styled.Text`
 `;
 
 export const FlatList = styled.FlatList`
-  /* margin-top: 20px; */
   width: 90%;
-  /* height: 100%; */
 `;
 
 export const DivTexto = styled.View`
   width: 100%;
   align-items: center;
   justify-content: center;
-  padding-top: 50px;
+  padding-top: 40px;
+  padding-bottom: 10px;
   flex-direction: row;
 `;
 
@@ -49,7 +46,7 @@ export const Texto = styled.Text`
 
 export const DivTextoSection = styled.View`
   width: 90%;
-  margin-top: 30px;
+  margin-top: 10px;
   align-items: center;
   justify-content: flex-start;
   padding: 10px;
@@ -80,7 +77,7 @@ export const DivLinha = styled.Text`
 `;
 
 export const DivMsg = styled.View`
-  margin-top: 100px;
+  margin-top: 200px;
   /* position: absolute; */
   width: 250px;
   align-items: center;

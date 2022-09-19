@@ -23,6 +23,7 @@ import {
 import {StatusBar, StyleSheet, TouchableOpacity} from 'react-native';
 import {CommonActions} from '@react-navigation/native';
 import Icon from 'react-native-vector-icons/Ionicons';
+import {getAuth} from 'firebase/auth';
 
 import {AgendamentoContext} from '../../context/AgendamentosProvider';
 import ItemConf from './ItemConf';
@@ -30,12 +31,31 @@ import ItemPend from './ItemPend';
 import Loading from '../../components/Loading';
 import {COLORS} from '../../assets/colors';
 
-const Agendamentos = ({navigation}) => {
-  const [data, setData] = useState(null);
+const Preferencias = ({navigation}) => {
   const [loading, setLoading] = useState(false);
-  const {agendamentos} = useContext(AgendamentoContext);
+  const [user, setCurrentUser] = useState([]);
 
-  
+  const getUserCache = async () => {
+    try {
+      const jsonValue = await AsyncStorage.getItem('user');
+      //console.log(jsonValue);
+      return jsonValue != null ? JSON.parse(jsonValue) : null;
+    } catch (e) {
+      console.log('Home: erro em getUserCache:' + e);
+    }
+  };
+
+  const getcurrentUser = async () => {
+    //console.log(getUserCache);
+    const data = await getUserCache();
+    return data;
+  };
+
+  useEffect(() => {
+    setCurrentUser(getcurrentUser());
+    console.error(user);
+  },[]);
+
   const SignOut = () => {
     AsyncStorage.removeItem('user')
       .then(() => {
@@ -50,43 +70,13 @@ const Agendamentos = ({navigation}) => {
       .catch(e => {
         console.log('LogoutButton', 'erro em signout cache ' + e);
       });
-    }
-
-  useEffect(() => {
-    //setData(agendamentos);
-    //console.log(data);
-  }, [agendamentos]);
-
-  // const routeGinasio = item => {
-  //   //setLoading(true);
-  //   navigation.dispatch(
-  //     CommonActions.navigate({
-  //       name: 'Ginasio',
-  //       params: {ginasio: item},
-  //     }),
-  //   );
-  //   //setLoading(false);
-  // };
-  const routeHome = () => {
-    navigation.dispatch(
-      CommonActions.navigate({
-        name: 'Ginasios',
-      }),
-    );
   };
-  const renderItemConf = ({item}) => (
-    <ItemConf item={item} onPress={() => alert('Agendamento Modal detalhes')} />
-  );
-
-  const renderItemPend = ({item}) => (
-    <ItemPend item={item} onPress={() => alert('Agendamento Modal detalhes')} />
-  );
 
   return (
     <Container>
       <DivTexto>
         <Imagem source={require('../../assets/images/pedro.png')} />
-        <Texto>Pedro Álvares</Texto>
+        <Texto>{user.nome}</Texto>
         <IconeRight>
           <Icon name="pencil-sharp" color={COLORS.white} size={20} />
         </IconeRight>
@@ -148,4 +138,4 @@ const Agendamentos = ({navigation}) => {
   );
 };
 
-export default Agendamentos;
+export default Preferencias;

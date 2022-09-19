@@ -9,6 +9,7 @@ import {GinasioContext} from '../../context/GinasioProvider';
 import {EsporteContext} from '../../context/EsporteProvider';
 import {AgendamentoContext} from '../../context/AgendamentosProvider';
 
+
 const Preload = ({navigation}) => {
   const {getGinasios} = useContext(GinasioContext);
   const {getEsportes} = useContext(EsporteContext);
