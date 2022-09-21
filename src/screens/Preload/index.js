@@ -8,12 +8,15 @@ import {Container, Image} from './styles';
 import {GinasioContext} from '../../context/GinasioProvider';
 import {EsporteContext} from '../../context/EsporteProvider';
 import {AgendamentoContext} from '../../context/AgendamentosProvider';
-
+import {AuthUserContext} from '../../context/AuthUserProvider';
+import {ApiContext} from '../../context/Api/ApiProvider';
 
 const Preload = ({navigation}) => {
   const {getGinasios} = useContext(GinasioContext);
   const {getEsportes} = useContext(EsporteContext);
   const {getAgendamentos} = useContext(AgendamentoContext);
+  const {setUser} = useContext(AuthUserContext);
+  const {getApi} = useContext(ApiContext);
 
   const getUserCache = async () => {
     try {
@@ -27,6 +30,7 @@ const Preload = ({navigation}) => {
   const loginUser = async () => {
     const user = await getUserCache();
     if (user) {
+      setUser(user);
       navigation.dispatch(
         CommonActions.reset({
           index: 0,
@@ -66,6 +70,7 @@ const Preload = ({navigation}) => {
 
   useEffect(() => {
     loginUser();
+    getApi(); //obtem abjeto de acesso a API Rest do Firebase
 
     const unsubscribeGinasios = getGinasios();
     const unsubscribeEsportes = getEsportes();

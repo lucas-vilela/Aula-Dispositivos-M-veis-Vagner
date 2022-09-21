@@ -6,17 +6,23 @@ import AppStack from './AppStack';
 import {GinasioProvider} from '../context/GinasioProvider';
 import {EsporteProvider} from '../context/EsporteProvider';
 import {AgendamentoProvider} from '../context/AgendamentosProvider';
+import {ApiProvider} from '../context/Api/ApiProvider';
+import {UsuarioProvider} from '../context/Api/UsuariosProvider';
 
 export default function Providers() {
   return (
     <AuthUserProvider>
-      <GinasioProvider>
-        <AgendamentoProvider>
-          <EsporteProvider>
-            <AppStack />
-          </EsporteProvider>
-        </AgendamentoProvider>
-      </GinasioProvider>
+      <ApiProvider>
+        <GinasioProvider>
+          <AgendamentoProvider>
+            <EsporteProvider>
+              <UsuarioProvider>
+                <AppStack />
+              </UsuarioProvider>
+            </EsporteProvider>
+          </AgendamentoProvider>
+        </GinasioProvider>
+      </ApiProvider>
     </AuthUserProvider>
   );
 }

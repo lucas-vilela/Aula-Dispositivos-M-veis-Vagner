@@ -38,7 +38,7 @@ const GinasioMap = ({navigation, route}) => {
         },
         title: gin.nome,
         description: gin.telefone,
-        imagem: require('../../assets/images/pin_map_gin.png'),
+        imagem: require('../../assets/images/185040_map_pin_icon.svg'),
       });
     });
     console.log(data);

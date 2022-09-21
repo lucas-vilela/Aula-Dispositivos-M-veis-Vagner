@@ -23,38 +23,34 @@ import {
 import {StatusBar, StyleSheet, TouchableOpacity} from 'react-native';
 import {CommonActions} from '@react-navigation/native';
 import Icon from 'react-native-vector-icons/Ionicons';
-import {getAuth} from 'firebase/auth';
-
-import {AgendamentoContext} from '../../context/AgendamentosProvider';
-import ItemConf from './ItemConf';
-import ItemPend from './ItemPend';
 import Loading from '../../components/Loading';
 import {COLORS} from '../../assets/colors';
+import {AuthUserContext} from '../../context/AuthUserProvider';
 
 const Preferencias = ({navigation}) => {
   const [loading, setLoading] = useState(false);
-  const [user, setCurrentUser] = useState([]);
+  const {user} = useContext(AuthUserContext);
 
-  const getUserCache = async () => {
-    try {
-      const jsonValue = await AsyncStorage.getItem('user');
-      //console.log(jsonValue);
-      return jsonValue != null ? JSON.parse(jsonValue) : null;
-    } catch (e) {
-      console.log('Home: erro em getUserCache:' + e);
-    }
+  const routeUser = data => {
+    //setLoading(true);
+    navigation.dispatch(
+      CommonActions.navigate({
+        name: 'User',
+        params: {user: data},
+      }),
+    );
+    //setLoading(false);
   };
 
-  const getcurrentUser = async () => {
-    //console.log(getUserCache);
-    const data = await getUserCache();
-    return data;
+  const routeUsers = () => {
+    //setLoading(true);
+    navigation.dispatch(
+      CommonActions.navigate({
+        name: 'Usuarios',
+      }),
+    );
+    //setLoading(false);
   };
-
-  useEffect(() => {
-    setCurrentUser(getcurrentUser());
-    console.error(user);
-  },[]);
 
   const SignOut = () => {
     AsyncStorage.removeItem('user')
@@ -76,9 +72,14 @@ const Preferencias = ({navigation}) => {
     <Container>
       <DivTexto>
         <Imagem source={require('../../assets/images/pedro.png')} />
-        <Texto>{user.nome}</Texto>
+        <Texto>{user ? user.nome : 'nada'}</Texto>
         <IconeRight>
-          <Icon name="pencil-sharp" color={COLORS.white} size={20} />
+          <Icon
+            name="pencil-sharp"
+            color={COLORS.white}
+            size={20}
+            onPress={() => routeUser(user)}
+          />
         </IconeRight>
       </DivTexto>
       <DivLinha />
@@ -112,11 +113,11 @@ const Preferencias = ({navigation}) => {
         </IconeSection>
       </DivTextoSection>
       <DivLinha />
-      <DivTextoSection>
+      <DivTextoSection onPress={() => routeUsers()}>
         <IconeLeft>
           <Icon name="help-circle-outline" color={COLORS.white} size={30} />
         </IconeLeft>
-        <TextoSection>Ajuda</TextoSection>
+        <TextoSection>Usuários(aula)</TextoSection>
         <IconeSection>
           <Icon name="chevron-forward" size={30} color={COLORS.white} />
         </IconeSection>

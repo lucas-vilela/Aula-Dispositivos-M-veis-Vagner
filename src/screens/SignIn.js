@@ -1,5 +1,5 @@
 /* eslint-disable prettier/prettier */
-import React, {useState} from 'react';
+import React, {useContext, useState} from 'react';
 import {
   View,
   StyleSheet,
@@ -19,11 +19,13 @@ import firestore from '@react-native-firebase/firestore';
 import auth from '@react-native-firebase/auth';
 import {CommonActions} from '@react-navigation/native';
 import Loading from '../components/Loading';
+import { AuthUserContext } from '../context/AuthUserProvider';
 
 const SignIn = ({navigation}) => {
   const [email, setEmail] = useState('');
   const [pass, setPass] = useState('');
   const [loading, setLoading] = useState(false);
+  const {setUser} = useContext(AuthUserContext);
 
   const storeUserCache = async value => {
     try {
@@ -46,6 +48,7 @@ const SignIn = ({navigation}) => {
         if (doc.exists) {
           //console.log('Document data:' + doc.data());
           storeUserCache(doc.data());
+          setUser(doc.data());
         } else {
           console.log('Sem documento.');
         }
