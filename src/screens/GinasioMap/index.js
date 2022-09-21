@@ -61,7 +61,7 @@ const GinasioMap = ({navigation, route}) => {
         }}>
         {markers.map(marker => (
           <Marker
-            key={marker.uid}
+            key={marker.key}
             coordinate={marker.coords}
             title={marker.title}
             description={marker.description}
