@@ -33,11 +33,11 @@ const Agendamentos = ({navigation}) => {
   const {agendamentos} = useContext(AgendamentoContext);
 
   useEffect(() => {
-    //setDataConf(agendamentos.filter(item => item.status));
+    setDataConf(agendamentos.filter(item => item.status));
     //console.log(data);
   }, [agendamentos]);
   useEffect(() => {
-    setDataPend(agendamentos.filter(item => !item.status));
+    //setDataPend(agendamentos.filter(item => !item.status));
     //console.log(data);
   }, [agendamentos]);
 
