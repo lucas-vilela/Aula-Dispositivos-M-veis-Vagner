@@ -18,7 +18,7 @@ export const ApiProvider = ({children}) => {
                 'https://firestore.googleapis.com/v1/projects/projetoteste-3a8bf/databases/(default)/documents/',
               headers: {Authorization: 'Bearer ' + idToken},
             });
-            //console.log(apiLocal);
+            console.log(apiLocal);
             //middleware
             apiLocal.addResponseTransform(response => {
               if (!response.ok) {

@@ -5,7 +5,6 @@ const Image = styled.Image`
   width: 165px;
   height: 54px;
   margin: 10px 0 10px 95px;
-
 `;
 
 const Header = () => {

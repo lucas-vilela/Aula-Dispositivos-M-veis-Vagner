@@ -119,7 +119,7 @@ const Users = ({item, onPress}) => {
           <TextEndereco>{item.endereco}</TextEndereco>
           <DivIcon>
             <Icon name="location-outline" size={16} color="#FFF" />
-          </DivIcon> 
+          </DivIcon>
         </DivEndereco>
         <DivImagem>
           <Imagem source={require('../../assets/images/gin.jpg')} />

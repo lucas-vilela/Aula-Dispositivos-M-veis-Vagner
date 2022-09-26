@@ -1,8 +1,8 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, {useState, useEffect, useContext} from 'react';
 import {ToastAndroid, StatusBar, Alert} from 'react-native';
 import MeuButton from '../../components/MeuButton';
 import {Container, TextInput} from './styles';
-import firestore from '@react-native-firebase/firestore';
 import Loading from '../../components/Loading';
 import {UsuarioContext} from '../../context/Api/UsuariosProvider';
 import DeleteButton from '../../components/DeleteButton';
@@ -34,7 +34,6 @@ const User = ({route, navigation}) => {
   };
 
   const inserir = async () => {
-    
     if (nome && email && cel) {
       let newUser = {};
       newUser.nome = nome;
@@ -44,7 +43,7 @@ const User = ({route, navigation}) => {
       setLoading(true);
       if (id) {
         await atualizar(newUser);
-      } else {  
+      } else {
         await salvar(newUser);
       }
       setLoading(false);

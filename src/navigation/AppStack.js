@@ -51,7 +51,11 @@ const AppStack = () => {
         <Stack.Screen name="Home" component={Home} options={alertBar} />
         <Stack.Screen name="Ginasios" component={Ginasios} options={alertBar} />
         <Stack.Screen name="Ginasio" component={Ginasio} options={alertBar} />
-        <Stack.Screen name="GinasioMap" component={GinasioMap} options={alertBar} />
+        <Stack.Screen
+          name="GinasioMap"
+          component={GinasioMap}
+          options={alertBar}
+        />
         <Stack.Screen name="Quadras" component={Quadras} options={alertBar} />
         <Stack.Screen name="Quadra" component={Quadra} options={alertBar} />
         <Stack.Screen name="Esportes" component={Esportes} options={alertBar} />

@@ -28,7 +28,6 @@ const Users = ({item, onPress}) => {
         <TextName>{item.nome}</TextName>
         <TextEmail>{item.cel}</TextEmail>
         <TextEmail>{item.email}</TextEmail>
-
       </>
     </Button>
   );

@@ -4,7 +4,6 @@ import {StatusBar} from 'react-native';
 import {EsporteContext} from '../../context/EsporteProvider';
 import {CommonActions} from '@react-navigation/native';
 
-
 import Item from './Item';
 import Loading from '../../components/Loading';
 import AddFloatButton from '../../components/AddFloatButton';

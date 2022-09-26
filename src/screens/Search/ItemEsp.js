@@ -34,7 +34,6 @@ const DivRight = styled.View`
   align-items: center;
 `;
 
-
 const Esportes = ({item, onPress}) => {
   return (
     <Button onPress={onPress} underlayColor="transparent">

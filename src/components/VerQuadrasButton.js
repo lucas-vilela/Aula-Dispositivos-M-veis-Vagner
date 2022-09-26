@@ -17,7 +17,7 @@ const styles = StyleSheet.create({
     marginBottom: 2,
     color: COLORS.primaryDark,
   },
-  button: { 
+  button: {
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: COLORS.alert,

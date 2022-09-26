@@ -76,8 +76,6 @@ const Ginasios = ({navigation}) => {
     //setLoading(false);
   };
 
-
-
   const routeAddGinasio = () => {
     navigation.dispatch(
       CommonActions.navigate({

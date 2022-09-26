@@ -16,7 +16,7 @@ const styles = StyleSheet.create({
     fontSize: 20,
     color: COLORS.primaryDark,
   },
-  button: { 
+  button: {
     alignItems: 'center',
     backgroundColor: COLORS.alert,
     padding: 20,

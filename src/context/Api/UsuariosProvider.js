@@ -2,7 +2,7 @@ import React, {useState, createContext, useContext} from 'react';
 
 import firestore from '@react-native-firebase/firestore';
 import {ApiContext} from '../Api/ApiProvider';
-import { Alert } from 'react-native';
+import {Alert} from 'react-native';
 
 export const UsuarioContext = createContext({});
 

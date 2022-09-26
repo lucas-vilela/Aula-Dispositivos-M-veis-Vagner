@@ -18,5 +18,5 @@ export const Text = styled.Text`
 `;
 
 export const FlatList = styled.FlatList`
-  width: 100%; 
+  width: 100%;
 `;

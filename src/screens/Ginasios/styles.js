@@ -21,5 +21,4 @@ export const FlatList = styled.FlatList`
   /* margin-top: 20px; */
   width: 90%;
   /* height: 100%; */
-  
 `;

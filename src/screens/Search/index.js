@@ -290,7 +290,7 @@ const styles = StyleSheet.create({
     height: 80,
     paddingVertical: 5,
   },
-  ginasiosFlat:{
+  ginasiosFlat: {
     width: '90%',
   },
   areaDatas: {

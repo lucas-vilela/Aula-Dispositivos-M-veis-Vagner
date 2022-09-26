@@ -71,7 +71,6 @@ const Imagem = styled.Image`
   margin-right: 10px;
 `;
 
-
 const Users = ({item, onPress}) => {
   return (
     <Button onPress={onPress} underlayColor="transparent">
@@ -81,10 +80,10 @@ const Users = ({item, onPress}) => {
             <TextDistancia>{item.distancia}</TextDistancia>
             <TextName>{item.nome}</TextName>
           </DivTopTexto>
-          <VerQuadrasButton texto={'Ver quadras'}/>
+          <VerQuadrasButton texto={'Ver quadras'} />
           <DivDownTexto>
             <DivIcon>
-              <Icon name="location-outline" size={16} color='#FFF'/>
+              <Icon name="location-outline" size={16} color="#FFF" />
             </DivIcon>
             <TextEndereco>{item.endereco}</TextEndereco>
           </DivDownTexto>
